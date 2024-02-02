@@ -1,12 +1,9 @@
 <template>
-
-    Users Index Page
-
+    User Index Page
 </template>
 <script>
 
 export default {
-
 };
 
 </script>
