@@ -15,7 +15,7 @@ export const verifyTokenMiddleware = async (to, from, next) => {
 
     const response = await backend.get('token/verify');
 
-    if (!response.data.response) {
+    if (!response.data.data.response) {
         next({ name: '403' });
     }
 
