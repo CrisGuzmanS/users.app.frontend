@@ -9,7 +9,7 @@ loadFonts()
 
 import UserPage from '@/users/components/pages/UserIndexPage.vue'
 import LoginPage from '@/auth/components/pages/LoginPage.vue'
-import { TokenService } from './auth/services/TokenService'
+import { verifyTokenInterceptor } from './auth/interceptors/verifyTokenInterceptor'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,21 +27,6 @@ const router = createRouter({
     }]
 });
 
-router.beforeEach((to, from, next) => {
-
-    console.log("🟣 Middleware requiresAuth");
-
-    if (!to.meta.requiresAuth) {
-        return next();
-    }
-
-    const token = TokenService.get();
-
-    if (!token) {
-        next({ name: 'login' });
-    }
-
-    next();
-});
+router.beforeEach(verifyTokenInterceptor);
 
 createApp(App).use(router).use(vuetify).mount('#app')
