@@ -1,4 +1,4 @@
-import { TokenService } from './auth/services/TokenService';
+import { TokenService } from '../services/TokenService.js';
 
 export const verifyTokenInterceptor = (to, from, next) => {
 
