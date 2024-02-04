@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { verifyTokenInterceptor } from './auth/interceptors/verifyTokenInterceptor'
+import { verifyTokenMiddleware } from './auth/middlewares/verifyTokenMiddleware.js'
 
 import UserPage from '@/users/components/pages/UserIndexPage.vue'
 import LoginPage from '@/auth/components/pages/LoginPage.vue'
@@ -25,6 +25,6 @@ const router = createRouter({
     }]
 });
 
-router.beforeEach(verifyTokenInterceptor);
+router.beforeEach(verifyTokenMiddleware);
 
 export { router };

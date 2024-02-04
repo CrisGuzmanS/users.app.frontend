@@ -1,8 +1,7 @@
 import { TokenService } from '../services/TokenService.js';
+import backend from '@/backend.js';
 
-export const verifyTokenInterceptor = (to, from, next) => {
-
-    console.log("🟣 Middleware requiresAuth");
+export const verifyTokenMiddleware = async (to, from, next) => {
 
     if (!to.meta.requiresAuth) {
         return next();
@@ -12,6 +11,12 @@ export const verifyTokenInterceptor = (to, from, next) => {
 
     if (!token) {
         next({ name: 'login' });
+    }
+
+    const response = await backend.get('token/verify');
+
+    if (!response.data.response) {
+        next({ name: '403' });
     }
 
     next();

@@ -14,12 +14,6 @@ backend.interceptors.request.use((config) => {
     }
 
     return config;
-})
-
-backend.interceptors.response.use((response) => response, (error) => {
-    if (error.response && error.response.status === 403) {
-        window.location.href = '/403';
-    }
 });
 
 export default backend;
