@@ -24,7 +24,11 @@
 
         methods: {
             async onLogin() {
-                await AuthService.login(this.email,this.password)
+                const response = await AuthService.login(this.email,this.password);
+
+                if(response.token){
+                    this.$router.push({ name: 'users.index' });
+                }
             }
         }
 

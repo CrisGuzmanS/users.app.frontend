@@ -12,6 +12,8 @@ export class AuthService {
         const token = response.data.data.token;
 
         TokenService.set(token);
+
+        return response.data.data;
     }
 
 }
