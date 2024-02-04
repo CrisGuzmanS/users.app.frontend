@@ -24,7 +24,7 @@
 
         methods: {
             async onLogin() {
-                console.log( await AuthService.login(this.email,this.password) )
+                await AuthService.login(this.email,this.password)
             }
         }
 
