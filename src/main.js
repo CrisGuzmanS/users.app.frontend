@@ -7,7 +7,7 @@ import '@/assets/global.css'
 
 loadFonts()
 
-import UserPage from './components/users/pages/UserIndexPage.vue'
+import UserPage from '@/users/components/pages/UserIndexPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
