@@ -3,6 +3,7 @@ import { verifyTokenInterceptor } from './auth/interceptors/verifyTokenIntercept
 
 import UserPage from '@/users/components/pages/UserIndexPage.vue'
 import LoginPage from '@/auth/components/pages/LoginPage.vue'
+import UnauthorizedPage from '@/auth/components/pages/UnauthorizedPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,10 @@ const router = createRouter({
         path: '/login',
         name: 'login',
         component: LoginPage
+    }, {
+        path: '/403',
+        name: '403',
+        component: UnauthorizedPage
     }]
 });
 
