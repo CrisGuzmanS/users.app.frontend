@@ -27,6 +27,8 @@
 </template>
 <script>
 
+import backend from '@/backend.js';
+
 export default {
     data(){
         return {
@@ -38,13 +40,19 @@ export default {
     },
 
     methods: {
-        onSubmit(){
-            console.log({
+        async onSubmit(){
+
+            if(this.password != this.repeatedPassword){
+                return alert('La contraseña debe ser la misma');
+            }
+
+            await backend.post('usuarios', {
                 email: this.email,
                 name: this.name,
                 password: this.password,
-                repeatedPassword: this.repeatedPassword,
             });
+
+            this.$router.push({ name: 'users.index'});
         }
     }
 }
