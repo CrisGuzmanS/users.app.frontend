@@ -3,6 +3,7 @@ import { verifyTokenMiddleware } from './auth/middlewares/verifyTokenMiddleware.
 
 import UserPage from '@/users/components/pages/UserIndexPage.vue'
 import CreateUserPage from '@/users/components/pages/CreateUserPage.vue'
+import EditUserPage from '@/users/components/pages/EditUserPage.vue'
 import LoginPage from '@/auth/components/pages/LoginPage.vue'
 import UnauthorizedPage from '@/auth/components/pages/UnauthorizedPage.vue'
 
@@ -19,6 +20,13 @@ const router = createRouter({
         path: '/usuarios/crear',
         name: 'users.create',
         component: CreateUserPage,
+        meta: {
+            requiresAuth: true
+        }
+    }, {
+        path: '/usuarios/:id/editar',
+        name: 'users.edit',
+        component: EditUserPage,
         meta: {
             requiresAuth: true
         }
