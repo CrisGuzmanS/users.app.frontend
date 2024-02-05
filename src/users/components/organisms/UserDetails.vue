@@ -30,6 +30,7 @@
 <script>
 
 import backend from '@/backend';
+import Swal from 'sweetalert2';
 
 export default {
     props: {
@@ -44,8 +45,22 @@ export default {
 
     methods: {
         async onDeleteUser() {
+
+            const result = await Swal.fire({
+                title: '¿Estás seguro?',
+                text: `¿Quieres eliminar al usuaroo ${this.user.name}?`,
+                icon: 'warning',
+                showCancelButton: true,
+            });
+
+            if(!result.isConfirmed) {
+                return;
+            }
+
             await backend.delete(`usuarios/${this.user.id}`);
             this.display = false;
+
+            Swal.fire('Eliminado',`${this.user.name} ha sido eliminado`);
         }
     }
 }
