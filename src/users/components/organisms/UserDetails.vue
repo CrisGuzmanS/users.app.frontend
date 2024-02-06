@@ -12,7 +12,7 @@
                 {{ user.email }}
             </v-card-subtitle>
         </div>
-        <v-card-actions>
+        <v-card-actions class="mb-2">
             <v-row style="padding: 0px 16px;">
                 <v-col cols="6">
                     <v-btn rounded color="error" variant="outlined" style="width: 100%" v-on:click="onDeleteUser">
