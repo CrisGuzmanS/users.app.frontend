@@ -46,7 +46,7 @@ export default {
 
     methods: {
         async onSubmit() {
-            const response = await backend.patch(`usuarios/${this.$route.params.id}`, {
+            await backend.patch(`usuarios/${this.$route.params.id}`, {
                 email: this.user.email,
                 name: this.user.name
             });
