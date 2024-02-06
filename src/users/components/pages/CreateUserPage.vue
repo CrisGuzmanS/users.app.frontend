@@ -1,31 +1,34 @@
 <template>
-
-    <v-card>
+    <v-card class="card">
         <v-form @submit.prevent="onSubmit">
             <v-container>
-                <v-row>
-                    <v-col cols="12" md="6">
-                        <v-text-field v-model="email" label="Correo electrónico" required></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
-                        <v-text-field v-model="name" label="Nombre" required></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
-                        <v-text-field v-model="password" type="password" label="Contraseña" required></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
-                        <v-text-field v-model="repeatedPassword" type="password" label="Verificar contraseña" required></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                        <v-btn type="submit" color="primary">
-                            Crear usuario
-                        </v-btn>
-                    </v-col>
-                </v-row>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-email</v-icon>
+                    <input class="field__input" v-model="email" type="email" placeholder="Correo electrónico" />
+                </div>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-account-circle</v-icon>
+                    <input class="field__input" v-model="name" type="text" placeholder="Nombre" />
+                </div>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-lock</v-icon>
+                    <input class="field__input" v-model="password" type="password" placeholder="Contraseña" />
+                </div>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-lock</v-icon>
+                    <input class="field__input" v-model="password" type="password" placeholder="Contraseña" />
+                </div>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-lock</v-icon>
+                    <input class="field__input" v-model="repeatedPassword" type="password" placeholder="Repetir contraseña" />
+                </div>
+                <v-btn rounded type="submit" color="primary">
+                    <v-icon>mdi-plus</v-icon>
+                    Crear usuario
+                </v-btn>
             </v-container>
         </v-form>
     </v-card>
-
 </template>
 <script>
 
@@ -34,7 +37,7 @@ import backend from '@/backend.js';
 import Swal from 'sweetalert2';
 
 export default {
-    data(){
+    data() {
         return {
             email: '',
             name: '',
@@ -44,9 +47,9 @@ export default {
     },
 
     methods: {
-        async onSubmit(){
+        async onSubmit() {
 
-            if(this.password != this.repeatedPassword){
+            if (this.password != this.repeatedPassword) {
                 return Swal.fire({
                     icon: "error",
                     title: "¡Ups!",
@@ -54,13 +57,13 @@ export default {
                 });
             }
 
-            try{
+            try {
                 await backend.post('usuarios', {
                     email: this.email,
                     name: this.name,
                     password: this.password,
                 });
-            } catch(error) {
+            } catch (error) {
                 return Swal.fire({
                     icon: "error",
                     title: "¡Ups!",
@@ -69,7 +72,7 @@ export default {
             }
 
 
-            this.$router.push({ name: 'users.index'});
+            this.$router.push({ name: 'users.index' });
         }
     }
 }
