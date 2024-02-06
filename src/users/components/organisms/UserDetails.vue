@@ -1,8 +1,8 @@
 <template>
 
-<v-card v-if="display" class="pt-4" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+<v-card v-if="display" class="pt-4 h-100" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
     <div class="d-flex mb-2" style="justify-content: center">
-        <div style="width: 150px; height: 150px; background: gray; border-radius: 50%; background-image: url('./user.png'); background-size: contain"></div>
+        <div style="width: 150px; height: 150px; background: gray; border-radius: 50%; background-size: contain" :style="{backgroundImage: `url('${profileImage}')`}"></div>
     </div>
     <v-card-title class="text-center" style="padding: 0px">
         {{user.name}}
@@ -31,6 +31,7 @@
 
 import backend from '@/backend';
 import Swal from 'sweetalert2';
+import profileImage from '@/assets/img/user.png'
 
 export default {
     props: {
@@ -39,7 +40,8 @@ export default {
 
     data() {
         return {
-            display: true
+            display: true,
+            profileImage: profileImage
         }
     },
 
@@ -48,7 +50,7 @@ export default {
 
             const result = await Swal.fire({
                 title: '¿Estás seguro?',
-                text: `¿Quieres eliminar al usuaroo ${this.user.name}?`,
+                text: `¿Quieres eliminar al usuario ${this.user.name}?`,
                 icon: 'warning',
                 showCancelButton: true,
             });

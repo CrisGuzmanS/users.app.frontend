@@ -1,29 +1,30 @@
 <template>
 
-    <v-form @submit.prevent="onSubmit">
+    <v-card>
         <v-container>
-        
-        <v-row>
-        
-            <v-col cols="12">
+            <v-form @submit.prevent="onSubmit">
+                
+                <v-row>
+                
+                    <v-col cols="12">
 
-                <v-text-field label="Correo electrónico" v-model="user.email"></v-text-field>
-            
-            </v-col>
+                        <v-text-field label="Correo electrónico" v-model="user.email"></v-text-field>
+                    
+                    </v-col>
 
-            <v-col cols="12">
-                <v-text-field label="Nombre" v-model="user.name"></v-text-field>
-            </v-col>
+                    <v-col cols="12">
+                        <v-text-field label="Nombre" v-model="user.name"></v-text-field>
+                    </v-col>
 
-            <v-col cols="12">
-                <v-btn type="submit" color="primary">Guardar</v-btn>
-            </v-col>
+                    <v-col cols="12">
+                        <v-btn type="submit" color="primary">Guardar</v-btn>
+                    </v-col>
 
-        </v-row>
+                </v-row>
 
+            </v-form>
         </v-container>
-
-    </v-form>
+    </v-card>
 
 </template>
 <script>
