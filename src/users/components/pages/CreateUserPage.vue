@@ -16,10 +16,6 @@
                 </div>
                 <div class="field">
                     <v-icon class="field__icon">mdi-lock</v-icon>
-                    <input class="field__input" v-model="password" type="password" placeholder="Contraseña" />
-                </div>
-                <div class="field">
-                    <v-icon class="field__icon">mdi-lock</v-icon>
                     <input class="field__input" v-model="repeatedPassword" type="password" placeholder="Repetir contraseña" />
                 </div>
                 <v-btn rounded type="submit" color="primary">

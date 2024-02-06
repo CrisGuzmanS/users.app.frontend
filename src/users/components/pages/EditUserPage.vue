@@ -1,31 +1,27 @@
 <template>
-
-    <v-card>
+    <v-card class="card">
         <v-container>
             <v-form @submit.prevent="onSubmit">
-                
-                <v-row>
-                
-                    <v-col cols="12">
 
-                        <v-text-field label="Correo electrónico" v-model="user.email"></v-text-field>
-                    
-                    </v-col>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-email</v-icon>
+                    <input class="field__input" v-model="user.email" type="email" placeholder="Correo electrónico" />
+                </div>
 
-                    <v-col cols="12">
-                        <v-text-field label="Nombre" v-model="user.name"></v-text-field>
-                    </v-col>
+                <div class="field">
+                    <v-icon class="field__icon">mdi-account-circle</v-icon>
+                    <input class="field__input" v-model="user.name" type="text" placeholder="Nombre" />
+                </div>
 
-                    <v-col cols="12">
-                        <v-btn type="submit" color="primary">Guardar</v-btn>
-                    </v-col>
 
-                </v-row>
+                <v-btn rounded type="submit" color="primary">
+                    <v-icon class="mdi">mdi-content-save</v-icon>
+                    Guardar
+                </v-btn>
 
             </v-form>
         </v-container>
     </v-card>
-
 </template>
 <script>
 
@@ -33,7 +29,7 @@ import backend from "@/backend.js";
 
 export default {
 
-    data(){
+    data() {
         return {
             user: {
                 email: '',
@@ -48,7 +44,7 @@ export default {
     },
 
     methods: {
-        async onSubmit(){
+        async onSubmit() {
             const response = await backend.patch(`usuarios/${this.$route.params.id}`, {
                 email: this.user.email,
                 name: this.user.name
