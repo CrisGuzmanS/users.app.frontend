@@ -26,6 +26,7 @@
 <script>
 
 import backend from "@/backend.js";
+import Swal from 'sweetalert2';
 
 export default {
 
@@ -50,7 +51,11 @@ export default {
                 name: this.user.name
             });
 
-            console.log(response);
+            Swal.fire({
+                title: "Usuario actualizado",
+                text: "Los datos del usuario han sido actualizados",
+                icon: "success"
+            });
         }
     }
 

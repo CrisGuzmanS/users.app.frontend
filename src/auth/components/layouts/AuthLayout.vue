@@ -3,7 +3,7 @@
     <v-container>
         <nav class="mb-4" style="display: flex; align-items: center">
             <div style="flex: 1">
-                <h1>Mi app</h1>
+                <h1 style="cursor: pointer" v-on:click="$router.push({ name: 'users.index' })">Mi app</h1>
             </div>
             <UserProfile/>
         </nav>    
