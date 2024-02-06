@@ -27,8 +27,8 @@
     }
 
     .paginator__item{
-        background: hsl(234, 55%, 80%);
-        color:hsl(234, 55%, 20%);
+        background: var(--primary-200);
+        color: var(--primary-800);
         width: 36px; 
         height: 36px; 
         border-radius: 12px;  
@@ -42,7 +42,7 @@
     }
 
     .paginator__item:hover{
-        background: hsl(234, 55%, 70%);
+        background: var(--primary-300);
     }    
 
 </style>

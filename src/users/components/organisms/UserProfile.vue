@@ -3,9 +3,11 @@
 <div v-on:click="toggleMenu" class="profile" :style="{backgroundImage: `url('${profileImage}')`}">
     <ul v-if="isActive" class="profile__menu">
         <li class="profile__menu__item">
+            <v-icon>mdi-account-circle</v-icon>
             Perfil
         </li>
         <li class="profile__menu__item" v-on:click="onLogout">
+            <v-icon>mdi-logout</v-icon>
             Cerrar sesión
         </li>
     </ul>
@@ -68,10 +70,12 @@ export default {
 .profile__menu__item{
     padding: 12px 20px;
     transition: 0.2s;
+    font-weight: bold;
 }
 
 .profile__menu__item:hover{
-    background: hsl(221, 86%, 88%);
+    background: var(--primary-100);
+    color: var(--primary-600);
 }
 
 </style>

@@ -3,7 +3,10 @@
         <v-col cols="12">
             <h2>
                 Usuarios
-                <v-btn variant="tonal" color="primary" style="float: right" v-on:click="$router.push({name:'users.create'})">Añadir usuario</v-btn>
+                <v-btn rounded variant="tonal" color="primary" style="float: right" v-on:click="$router.push({name:'users.create'})">
+                    <v-icon @click="addItem">mdi-plus</v-icon>
+                    Añadir usuario
+                </v-btn>
             </h2>
         </v-col>
         <v-col v-for="user in users" cols="12" md="6" lg="4" :key="user.id">

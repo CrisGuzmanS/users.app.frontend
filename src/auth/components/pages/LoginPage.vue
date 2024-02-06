@@ -6,8 +6,8 @@
                 <h1 style="margin: 0; text-align: center"><b>Iniciar sesión</b></h1>
                 <p style="text-align: center">Bienvenidos a la plataforma CRUD de usuarios</p>
                 <v-container style="display:flex; align-items:center; flex-direction: column">
-                    <v-text-field class="mb-2 w-100" hide-details bg-color="hsl(221,86%,88%)" variant="plain" v-model="email" prepend-inner-icon="mdi-email" label="Correo electrónico"></v-text-field>
-                    <v-text-field class="mb-2 w-100" hide-details bg-color="hsl(221,86%,88%)" variant="plain" v-model="password" type="password" prepend-inner-icon="mdi-lock" label="Contraseña"></v-text-field>
+                    <v-text-field class="mb-2 w-100" hide-details bg-color="var(--primary-100)" variant="plain" v-model="email" prepend-inner-icon="mdi-email" label="Correo electrónico"></v-text-field>
+                    <v-text-field class="mb-2 w-100" hide-details bg-color="var(--primary-100)" variant="plain" v-model="password" type="password" prepend-inner-icon="mdi-lock" label="Contraseña"></v-text-field>
 
                     <v-alert variant="tonal" class="mb-3" v-if="error" type="error" title="Credenciales incorrectas" text="Posiblemente colocó de forma incorrecta el correo electrónico o la contraseña. Por favor, vuelva a intentarlo"></v-alert>
 
@@ -18,7 +18,7 @@
         <v-col cols="12" md="6" style="padding: 0px; position: relative; background-image: url('./facultad.jpg'); background-size: cover; background-position: center">
             <div style="display: flex; align-items:center; justify-content: center; position: absolute; width: 100%; height: 100%; background-color: hsla(221, 86%, 88%, 80%)">
                 <div>
-                    <h1 style="color: hsl(221, 86%, 20%)">CRUD DE USUARIOS</h1>
+                    <h1 style="color: var(--primary-800)">CRUD DE USUARIOS</h1>
                 </div>
             </div>
         </v-col>

@@ -1,5 +1,5 @@
 import backend from "@/backend.js";
-import { TokenService } from "@/auth/services/TokenService.js";
+import {token} from "@/auth/helpers/token.js"
 
 export class AuthService {
 
@@ -9,9 +9,7 @@ export class AuthService {
             password
         });
 
-        const token = response.data.data.token;
-
-        TokenService.set(token);
+        token(response.data.data.token);
 
         return response.data.data;
     }
